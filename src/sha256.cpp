@@ -371,7 +371,7 @@ std::string SHA256::getHashString()
   // convert to hex string
   std::string result;
   result.reserve(2 * HashBytes);
-  for (int i = 0; i < HashBytes; i++)
+  for (size_t i = 0; i < HashBytes; i++)
   {
     static const char dec2hex[16+1] = "0123456789abcdef";
     result += dec2hex[(rawHash[i] >> 4) & 15];
@@ -389,7 +389,7 @@ std::array<uint8_t, SHA256::HashBytes> SHA256::getHashBytes()
 	
 	// save old hash if buffer is partially filled
 	std::array<uint32_t,HashValues> oldHash;
-	for (int i = 0; i < HashValues; i++) {
+	for (size_t i = 0; i < HashValues; i++) {
 		oldHash[i] = m_hash[i];
 	}
 
@@ -397,7 +397,7 @@ std::array<uint8_t, SHA256::HashBytes> SHA256::getHashBytes()
 	processBuffer();
 
 	int j = 0;
-	for (int i = 0; i < HashValues; i++) {
+	for (size_t i = 0; i < HashValues; i++) {
 		current[j++] = (m_hash[i] >> 24) & 0xFF;
 		current[j++] = (m_hash[i] >> 16) & 0xFF;
 		current[j++] = (m_hash[i] >> 8) & 0xFF;
