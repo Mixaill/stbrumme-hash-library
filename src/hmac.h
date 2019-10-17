@@ -12,6 +12,7 @@
  * see also http://en.wikipedia.org/wiki/Hash-based_message_authentication_code
  */
 
+#include <array>
 #include <cstring>
 #include <string>
 #include <vector>
